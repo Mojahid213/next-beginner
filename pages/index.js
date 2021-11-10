@@ -23,6 +23,15 @@ export default function Home() {
       >
         Place order
       </button>
+
+      {/* Next js pre rendering */}
+      <h1 className="text-center mt-10 text-4xl border-b-2">
+        Next js pre rendering
+      </h1>
+
+      <Link href="/users">
+        <a className="text-center text-3xl">Users</a>
+      </Link>
     </div>
   );
 }
