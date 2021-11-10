@@ -32,6 +32,10 @@ export default function Home() {
       <Link href="/users">
         <a className="text-center text-3xl">Users</a>
       </Link>
+      {/* posts */}
+      <Link href="/posts">
+        <a className="text-2xl block">Posts</a>
+      </Link>
     </div>
   );
 }
