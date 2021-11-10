@@ -6,7 +6,7 @@ export default function ProductId() {
   return (
     <div>
       <h1 className="text-xl text-center">Product Details</h1>
-      <h1 className="text-xl text-center">Product - {query.id}</h1>
+      <h1 className="text-xl text-center">Product - {query.productId}</h1>
     </div>
   );
 }
