@@ -1,4 +1,8 @@
 export default function Post({ post }) {
+  // const router = useRouter();
+  // if (router.isFallback) {
+  //   return <h1 className="text-center mt-16 text-3xl">Loading...</h1>;
+  // }
   return (
     <>
       <h1 className="text-3xl">
@@ -10,6 +14,13 @@ export default function Post({ post }) {
 }
 
 export async function getStaticPaths() {
+  //   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  //   const data = await res.json();
+  //   const paths = data.map((post) => {
+  //     return {
+  //       params: { postId: `${post.id}` },
+  //     };
+  //   });
   return {
     paths: [
       {
@@ -22,7 +33,7 @@ export async function getStaticPaths() {
         params: { postId: "3" },
       },
     ],
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
@@ -32,6 +43,12 @@ export async function getStaticProps(context) {
     `https://jsonplaceholder.typicode.com/posts/${params.postId}`
   );
   const data = await res.json();
+  console.log(`Generating page for /posts/${params.postId}`); //Consoling the getStaticProps build output
+  if (!data.id) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       post: data,

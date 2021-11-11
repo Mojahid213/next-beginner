@@ -8,7 +8,7 @@ export default function PostLists({ posts }) {
         return (
           <div key={post.id}>
             <Link href={`/posts/${post.id}`} passHref>
-              <h1>
+              <h1 className="mb-5">
                 {post.id} - {post.title}
               </h1>
             </Link>
