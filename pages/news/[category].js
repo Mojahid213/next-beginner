@@ -17,11 +17,14 @@ export default function Category({ details }) {
 }
 
 export async function getServerSideProps(context) {
-  const { params } = context;
-  const res = await fetch(
+  const { params, req, res, query } = context;
+  console.log(query);
+  console.log(req.headers.cookie);
+  res.setHeader("set-cookie", ["name=Mojahid"]);
+  const response = await fetch(
     `http://localhost:1337/news?category_eq=${params.category}`
   );
-  const data = await res.json();
+  const data = await response.json();
   return {
     props: {
       details: data,
